@@ -6,7 +6,8 @@ import styled from 'styled-components';
 const ProductResult = styled(Grid)`
     border: 2px solid black;
     padding: 40px 30px;
-    margin: 0 auto;
+    margin-right: auto!important;
+    margin-left: auto!important;
     @media (min-width: 768px){
         width: 75%;
     }
