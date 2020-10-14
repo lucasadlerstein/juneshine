@@ -40,7 +40,7 @@ const Information = styled.div`
     }
 `;
 const GetItNowButton = styled(Button)`
-    margin-top: 20px;   
+    margin-top: 20px!important;   
     background-color: white;
     color: black;
     text-transform: uppercase;
@@ -59,8 +59,8 @@ const GetItNowButton = styled(Button)`
     }
 
     @media (max-width: 540px){
-        margin-right: auto;
-        margin-left: auto;
+        margin-right: auto!important;
+        margin-left: auto!important;
     }
 `;
 const ProductImage = styled.img`
@@ -81,7 +81,7 @@ const IndividualResult = ({product, marginBottom}) => {
                     <p>
                         {product.description}
                     </p>
-                    <GetItNowButton variant="nav" as={Link} target="_blank" href="byob#products">Get it now</GetItNowButton>
+                    <GetItNowButton variant="nav" as={Link} target="_blank" href="/byob#products">Get it now</GetItNowButton>
                 </Information>
             </Flex>
         </ProductResult>

@@ -12,10 +12,13 @@ import Data from './Data.js';
 import styled from 'styled-components';
 
 const FlexOption = styled(Flex)`
-    width: 90%;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    width: 100%;
     flex: 0 0 1;
     align-items: center;
-    margin-bottom: 35px;
+    margin-bottom: 35px!important;
+    justify-content: space-evenly;
     
     @media (min-width: 540px){
         width: 50%;
@@ -65,7 +68,7 @@ const QuizComponent = () => {
                         ) : (
                             <div id="quizSection" key={step}>
                                 <Question lineOne={Data[step].Question.LineOne} lineTwo={Data[step].Question.LineTwo} />
-                                <Flex sx={{width: '90%', justifyContent: 'center',  flexWrap: 'wrap', textAlign: 'center', margin: '0 auto 50px auto'}}>
+                                <Flex sx={{width: '100%', justifyContent: 'center',  flexWrap: 'wrap', textAlign: 'center', margin: '0 auto 50px auto'}}>
                                 {
                                     Data[step].Answers.map( one => {
                                         if(one.Type === 'text') {
