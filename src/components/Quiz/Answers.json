@@ -1,0 +1,132 @@
+[
+    {
+        "Main": 3,
+        "Second": 2,
+        "Third": 10
+    },
+    {
+        "Main": 3,
+        "Second": 5,
+        "Third": 10
+    },
+    {
+        "Main": 3,
+        "Second": 4,
+        "Third": 10
+    },
+    {
+        "Main": 3,
+        "Second": 1,
+        "Third": 10
+    },
+    {
+        "Main": 3,
+        "Second": 3,
+        "Third": 10
+    },
+
+    {
+        "Main": 2,
+        "Second": 3,
+        "Third": 10
+    },
+        {
+        "Main": 2,
+        "Second": 5,
+        "Third": 10
+    },
+        {
+        "Main": 2,
+        "Second": 4,
+        "Third": 10
+    },
+    {
+        "Main": 2,
+        "Second": 1,
+        "Third": 10
+    },
+        {
+        "Main": 2,
+        "Second": 2,
+        "Third": 10
+    },
+
+        {
+        "Main": 5,
+        "Second": 3,
+        "Third": 10
+    },
+        {
+        "Main": 5,
+        "Second": 2,
+        "Third": 10
+    },
+        {
+        "Main": 5,
+        "Second": 4,
+        "Third": 10
+    },
+        {
+        "Main": 5,
+        "Second": 1,
+        "Third": 10
+    },
+        {
+        "Main": 5,
+        "Second": 5,
+        "Third": 10
+    },
+
+        {
+        "Main": 4,
+        "Second": 3,
+        "Third": 10
+    },
+        {
+        "Main": 4,
+        "Second": 2,
+        "Third": 10
+    },
+        {
+        "Main": 4,
+        "Second": 5,
+        "Third": 10
+    },
+        {
+        "Main": 4,
+        "Second": 1,
+        "Third": 10
+    },
+        {
+        "Main": 4,
+        "Second": 4,
+        "Third": 10
+    },
+
+
+        {
+        "Main": 1,
+        "Second": 3,
+        "Third": 10
+    },
+        {
+        "Main": 1,
+        "Second": 2,
+        "Third": 10
+    },
+    {
+        "Main": 1,
+        "Second": 5,
+        "Third": 10
+    },
+    {
+        "Main": 1,
+        "Second": 4,
+        "Third": 10
+    },
+    {
+        "Main": 1,
+        "Second": 1,
+        "Third": 10
+    }
+]

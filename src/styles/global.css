@@ -1,0 +1,127 @@
+html, body {
+  scroll-behavior: smooth;
+}
+
+.show {
+  position: fixed;
+  -webkit-transition: 500ms ease-in-out;
+  transition: 500ms ease-in-out;
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  will-change: transform;
+}
+
+.hide {
+  position: fixed;
+  -webkit-transition: 500ms ease-in-out;
+  transition: 500ms ease-in-out;
+  -webkit-transform: translateY(100px);
+  transform: translateY(100px);
+  will-change: transform;
+}
+
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+    -webkit-transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0px);
+  }
+}
+
+main{
+  overflow-x: hidden;
+}
+
+
+.badgeBundle{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #fee014;
+  top: -10px;
+  right: -10px;
+  font-size: 12px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 100%;
+  text-align: center;
+  color: #fff;
+  padding: 0 10px;
+  letter-spacing: 1px;
+}
+
+.inactiveAddButton{
+  opacity: 0.6
+}
+
+.activeBundle{
+  transform: scale(1);
+  transition: 0.3 ease;
+}
+
+
+.activeBundleInactive{
+  transform: scale(0)
+}
+
+.disabledBundleAddtoCart{
+  cursor: not-allowed;
+}
+
+
+.disabledBundleAddtoCart, .enabledBundleAddtoCart{
+  width: 80%
+}
+
+.tableComparison tr th:nth-child(2),
+.tableComparison tr td:nth-child(2){
+  background: #FCEEE4
+}
+
+.testimonial .slick-prev,
+.testimonial .slick-next{
+  top: unset;
+  bottom: 0;
+  font-weight: bold;
+}
+
+.testimonial .slick-prev{
+  left: 35%
+}
+
+.testimonial .slick-next{
+  right: 35%
+}
+
+@media only screen and (max-width: 768px) {
+  .sticky h3, .sticky .priceSet{
+    display: none;
+  }
+
+  .sticky{
+    padding-top: 60px
+  }
+}
+
+@media only screen and (min-width: 769px) {
+.sticky{
+  position: relative !important
+}
+}
