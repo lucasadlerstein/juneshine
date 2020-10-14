@@ -8,7 +8,7 @@ const Option = styled.button`
     background-color: transparent;
     border: 2px solid black;
     text-align: center;
-    display: grid;
+    display: block;
     width: 90%;
     min-height: 150px;
     font-family: 'RobotoMono', monospace;
@@ -41,8 +41,8 @@ const TextAnswer = ({text, value, icon}) => {
     
     return (
         <Option onClick={clickAnswerButton}>
-            { (icon) ? <IconPersonalized src={icon} alt={text} /> : null }
-            {text}
+                { (icon) ? <i style={{display: 'block'}}><IconPersonalized src={icon} alt={text} /></i> : null }
+                {text}
         </Option>
     );
 }
