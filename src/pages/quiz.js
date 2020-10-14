@@ -137,7 +137,7 @@ const Quiz = () => {
                   <QuizHeader />
                   <GeneralQuiz />
 
-                  <section sx={{backgroundColor: '#fceee4'}}>
+                  <div sx={{backgroundColor: '#fceee4'}}>
                       <Container sx={{py: 6}}>
                           <Styled.h2 sx={{textAlign: 'center', color: 'black', width: '90%', mx: 'auto', textTransform: 'uppercase'}}>Find yourself</Styled.h2>
                           <Styled.p sx={{textAlign: 'center', color: 'black', width: '80%', mx: 'auto', mb: '60px', textTransform: 'uppercase'}}>5 alternatives but you are unique.<br/>Find the best bundle for you</Styled.p>
@@ -159,7 +159,7 @@ const Quiz = () => {
                             </Flex>
                           </Grid>
                       </Container>
-                  </section>
+                  </div>
 
                   <LogoBar backgroundColor={'secondary'} logos={[{logo: forbes},{logo: nbc},{logo: popsugar},{logo: coolHunting},{logo: today}]} mobile={[{logo: forbes},{logo: nbc},{logo: coolHunting},{logo: today},{logo: popsugar}]} />
                   <Footer />
