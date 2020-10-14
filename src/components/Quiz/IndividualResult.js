@@ -82,7 +82,7 @@ const IndividualResult = ({product, marginBottom}) => {
                     <p>
                         {product.description}
                     </p>
-                    <GetItNowButton variant="nav" as={Link} target="_blank" href="/byob#products">Get it now</GetItNowButton>
+                    <GetItNowButton variant="nav" as={Link} target="_blank" href={product.url}>Get it now</GetItNowButton>
                 </Information>
             </Flex>
         </ProductResult>

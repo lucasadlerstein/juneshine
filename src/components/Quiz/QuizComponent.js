@@ -74,7 +74,7 @@ const QuizComponent = () => {
                                         if(one.Type === 'text') {
                                             return (
                                                 <FlexOption>
-                                                    <TextAnswer text={one.Text} value={one.Value} />
+                                                    <TextAnswer text={one.Text} value={one.Value} icon={one.Icon} />
                                                 </FlexOption>
                                             )
                                         } 

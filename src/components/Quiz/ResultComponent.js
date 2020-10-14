@@ -29,19 +29,23 @@ const items = [
       name: 'JuneShine Midnight Painkiller - 6% ABV - BYOB',
       description: 'orange, pineapple, coconut, nutmeg, activated charcoal, green tea, honey, cane sugar, jun kombucha',
       images: MidnightPainkiller,
+      url: '/byob#midnight'
     },
     {
       title: 'BLOOD ORANGE MINT',
       subtitle: '6% ABV',
       name: 'JuneShine Blood Orange Mint - 6% ABV - BYOB',
       description: 'Blood orange, mint, green tea, honey, cane sugar, jun kombucha',
-      images: BloodOrangeMint,    },
+      images: BloodOrangeMint,
+      url: '/byob#bloodOrang'
+    },
     {
       title: 'ACAI BERRY',
       subtitle: '6% ABV',
       name: 'JuneShine Acai Berry - 6% ABV - BYOB',
       description: 'ACAI, BLUEBERRY, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
       images: AcaiBerry,
+      url: '/byob#acaiberry'
     },
     {
       title: 'hopical citrus',
@@ -49,6 +53,7 @@ const items = [
       name: 'JuneShine Hopical Citrus - 6% ABV - BYOB',
       description: 'GRAPEFRUIT, ORGANIC HOPS, CITRUS ZEST, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
       images: HopicalCitrus,
+      url: '/byob#hopical'
     },
     {
       title: 'honey ginger lemon',
@@ -56,6 +61,7 @@ const items = [
       name: 'honey ginger lemon <br /> - 6% ABV',
       description: 'GINGER, LEMON, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
       images: HoneyGingerLemon,
+      url: '/byob#honeygingerlemon'
     },
 ]
 
@@ -91,7 +97,7 @@ const ResultComponent = () => {
                       <IndividualResult product={items[JsonResults[points-1].Second]} marginBottom={'50px'} />
                     )
                   }
-                  <IndividualResult product={items[1]} />
+                  <IndividualResult product={items[JsonResults[points-1].Third]} />
               </Container>
           </div>
         )

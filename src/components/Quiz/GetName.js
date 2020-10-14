@@ -67,7 +67,7 @@ const GetName = () => {
             <Question lineOne="Let's start easily," lineTwo="what's your name?" />
             <form onSubmit={sendForm}>
                 <Container sx={{textAlign: 'center'}}>
-                    <TextInput autoFocus placeholder="My name is..." name="nameTyped" onChange={handleChange} />
+                    <TextInput placeholder="My name is..." name="nameTyped" onChange={handleChange} />
                     <ButtonSend type="submit">
                         <img src={RightArrowIcon} alt="Save Name"/>
                     </ButtonSend>

@@ -8,7 +8,7 @@ const Option = styled.button`
     background-color: transparent;
     border: 2px solid black;
     text-align: center;
-    display: block;
+    display: grid;
     width: 90%;
     min-height: 150px;
     font-family: 'RobotoMono', monospace;
@@ -24,8 +24,13 @@ const Option = styled.button`
         outline: none;
     }
 `; 
+const IconPersonalized = styled.img`
+    margin: 0 auto 15px auto;
+    text-align: center;
+    max-width: 30px;
+`;
 
-const TextAnswer = ({text, value, name}) => {
+const TextAnswer = ({text, value, icon}) => {
     
     const QuizContext = useContext(quizContext);
     const { answerCompleted } = QuizContext;
@@ -35,7 +40,10 @@ const TextAnswer = ({text, value, name}) => {
     }
     
     return (
-        <Option onClick={clickAnswerButton}>{text}</Option>
+        <Option onClick={clickAnswerButton}>
+            { (icon) ? <IconPersonalized src={icon} alt={text} /> : null }
+            {text}
+        </Option>
     );
 }
  
