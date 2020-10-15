@@ -1,14 +1,23 @@
 // import ExampleImage from '../../images/instagram/007.png';
 // import ExampleImage2 from '../../images/instagram/006.png';
-import RightArrowIcon from '../../images/Quiz/right-arrow.png';
+// import RightArrowIcon from '../../images/Quiz/right-arrow.png';
 
 // Example for using component with IMAGE
-
 // {
 //     "Type": "darkimg", // darkimg or lightimg accepted
 //     "Text": "Some text here", // Can include text or not
 //     "Picture": ExampleImage, // Picture is required!
 //     "Value": 2
+// },
+
+
+// Example for ICON
+// {
+//     "Type": "text",
+//     "Text": "Front row at SoulCycle",
+//     "Picture": "",
+//     "Value": 5,
+//     "Icon": RightArrowIcon
 // },
 
 const Data =  [
@@ -23,7 +32,6 @@ const Data =  [
                 "Text": "Front row at SoulCycle",
                 "Picture": "",
                 "Value": 5,
-                "Icon": RightArrowIcon
             },
             {
                 "Type": "text",

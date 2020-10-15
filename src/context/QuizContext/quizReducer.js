@@ -14,7 +14,7 @@ const Reducer = (state, action) => {
             return {
                 ...state,
                 name: action.payload,
-                step: 0
+                step: (state.step + 1)
             }
 
         case ANSWER_DONE:

@@ -6,7 +6,7 @@ import { NAME_COMPLETED, ANSWER_DONE, HIDE_STEP } from '../../types/index';
 const QuizState = ({children}) => {
     const stateInicial = {
         name: '',
-        step: -1,
+        step: -3,
         points: 0,
         done: false,
         hide: false

@@ -41,8 +41,8 @@ const TextAnswer = ({text, value, icon}) => {
     
     return (
         <Option onClick={clickAnswerButton}>
-                { (icon) ? <i style={{display: 'block'}}><IconPersonalized src={icon} alt={text} /></i> : null }
-                {text}
+            { (icon) ? <i style={{display: 'block'}}><IconPersonalized src={icon} alt={text} /></i> : null }
+            {text}
         </Option>
     );
 }

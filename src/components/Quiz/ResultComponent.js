@@ -19,8 +19,6 @@ import HoneyGingerLemon from '../../images/Bundle/Honey Ginger Lemon.png'
 // 4 hopical citrus
 // 5 honey ginger lemon
 
-// 10 Sampler Pack
-
 const items = [
     {},
     {
@@ -73,18 +71,21 @@ const ResultComponent = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1200);
+    }, 2100);
     // eslint-disable-next-line
-  }, [])
+  }, []);
   
   return (
     <>
       {
         (loading === true) ? (
-          <div className="spinner">
-            <div className="bounce1"></div>
-            <div className="bounce2"></div>
-            <div className="bounce3"></div>
+          <div style={{textAlign: 'center'}}>
+            <ResultTitle text={`Be patient ${name}, your JuneShine is brewing...`} />
+            <div className="spinner">
+              <div className="bounce1"></div>
+              <div className="bounce2"></div>
+              <div className="bounce3"></div>
+            </div>
           </div>
         ) : (
           <div sx={{backgroundColor: '#f7f7f7'}}>

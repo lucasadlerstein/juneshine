@@ -57,7 +57,7 @@ const StepIndicator = () => {
     `);
 
     return (
-        <Grid columns={[5]} gap={[0]} sx={{width: '40%', textAlign: 'center', margin: '0 auto 50px auto'}}>
+        <Grid columns={[5]} gap={[0]} sx={{width: '40%', textAlign: 'center', margin: '0 auto 30px auto'}}>
             <Flex sx={{justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'column'}} opacity={ step < 0 ? "0.3" : "1"}>
                 <Img fluid={drink1.childImageSharp.fluid} sx={{width:["100%","50px"]}} />
             </Flex>
