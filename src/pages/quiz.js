@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Container, Grid, Styled, Flex } from "theme-ui"
 
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useStaticQuery, graphql} from 'gatsby'
 import Img from 'gatsby-image'
 
@@ -20,6 +20,7 @@ import today from '../images/logos/today-white.png'
 import QuizHeader from '../components/Quiz/QuizHeader';
 import QuizState from '../context/QuizContext/quizState';
 import GeneralQuiz from "../components/Quiz/GeneralQuiz"
+import { redirectPerRegion } from '../helpers/getLocation';
 
 const Quiz = () => {
     const { drink1, drink2, drink3, drink4, drink5 } = useStaticQuery(graphql`
@@ -66,7 +67,13 @@ const Quiz = () => {
         
         }
     `);
-    
+
+    const regionsArray = ['CA', 'NY'];
+
+    useEffect(() => {
+        redirectPerRegion(regionsArray, 'https://google.com');
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <Layout>

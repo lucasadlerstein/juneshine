@@ -66,8 +66,8 @@ const QuizComponent = () => {
                             <GetName />
                         ) : (
                             (step === -1) ? <GetEmail /> : (
-                                (step === Data.length) ? (
-                                    <ResultComponent />
+                                (step >= Data.length) ? (
+                                    (step === Data.length) ? <GetEmail /> : <ResultComponent />
                                 ) : (
                                     <div id="quizSection" key={step}>
                                         <Question lineOne={Data[step].Question.LineOne} lineTwo={Data[step].Question.LineTwo} />
