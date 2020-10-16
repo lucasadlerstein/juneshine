@@ -14,6 +14,7 @@ export function redirectPerRegion(region, url) {
                     })
                 } else {
                     return 'error';
+                    
                 }
             }
         })
