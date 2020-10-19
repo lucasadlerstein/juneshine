@@ -19,11 +19,17 @@ import today from '../../images/logos/today-white.png'
 // Quiz Components
 import QuizHeader from '../../components/Quiz/QuizHeader';
 import QuizState from '../../context/QuizContext/quizState';
-import GeneralQuiz from '../../components/Quiz/GeneralQuiz';
+import QuizComponent from '../../components/Quiz/QuizComponent';
 import { redirectPerRegion } from '../../helpers/getLocation';
 
+// DATA FOR QUIZ
+import JsonResults from '../../components/Quiz/Answers.json';
+import Data from '../../components/Quiz/Data.js'; 
+// Items inside the component
+
 const Index = () => {
-    const { drink1, drink2, drink3, drink4, drink5 } = useStaticQuery(graphql`
+
+    const { drink1, drink2, drink3, drink4, drink5, AcaiImg, BloodOrangeMintImg, HoneyGingerImg, HopicalCitrusImg, MidnightImg } = useStaticQuery(graphql`
         query {
             drink1: file(relativePath: { eq: "Bundle/Acai Berry.png" }) {
                 childImageSharp {
@@ -64,11 +70,95 @@ const Index = () => {
                 }
                 }
               }
+              AcaiImg: file(relativePath: { eq: "Quiz/Acai.png" }) {
+                childImageSharp {
+                fluid(quality: 100, maxWidth: 500) {
+                    ...GatsbyImageSharpFluid
+                }
+                }
+              }
+        
+              BloodOrangeMintImg: file(relativePath: { eq: "Quiz/Blood.png" }) {
+                childImageSharp {
+                fluid(quality: 100, maxWidth: 500) {
+                    ...GatsbyImageSharpFluid
+                }
+                }
+              }
+        
+              HoneyGingerImg: file(relativePath: { eq: "Quiz/Honey.png" }) {
+                childImageSharp {
+                fluid(quality: 100, maxWidth: 500) {
+                    ...GatsbyImageSharpFluid
+                }
+                }
+              }
+        
+              HopicalCitrusImg: file(relativePath: { eq: "Quiz/Hopical.png" }) {
+                childImageSharp {
+                fluid(quality: 100, maxWidth: 500) {
+                    ...GatsbyImageSharpFluid
+                }
+                }
+              }
+        
+              MidnightImg: file(relativePath: { eq: "Quiz/Midnight.png" }) {
+                childImageSharp {
+                fluid(quality: 100, maxWidth: 500) {
+                    ...GatsbyImageSharpFluid
+                }
+                }
+              }
+        
         
         }
     `);
 
     const regionsArray = ['CA', 'NY'];
+
+    const items = [
+        {},
+        {
+        title: 'MIDNIGHT PAINKILLER',
+        subtitle: '6% ABV',
+        name: 'JuneShine Midnight Painkiller - 6% ABV - BYOB',
+        description: 'orange, pineapple, coconut, nutmeg, activated charcoal, green tea, honey, cane sugar, jun kombucha',
+        images: MidnightImg,
+        url: '/byob#midnight'
+        },
+        {
+        title: 'BLOOD ORANGE MINT',
+        subtitle: '6% ABV',
+        name: 'JuneShine Blood Orange Mint - 6% ABV - BYOB',
+        description: 'Blood orange, mint, green tea, honey, cane sugar, jun kombucha',
+        images: BloodOrangeMintImg,
+        url: '/byob#bloodOrang'
+        },
+        {
+        title: 'ACAI BERRY',
+        subtitle: '6% ABV',
+        name: 'JuneShine Acai Berry - 6% ABV - BYOB',
+        description: 'ACAI, BLUEBERRY, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
+        images: AcaiImg,
+        url: '/byob#acaiberry'
+        },
+        {
+        title: 'hopical citrus',
+        subtitle: '6% ABV',
+        name: 'JuneShine Hopical Citrus - 6% ABV - BYOB',
+        description: 'GRAPEFRUIT, ORGANIC HOPS, CITRUS ZEST, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
+        images: HopicalCitrusImg,
+        url: '/byob#hopical'
+        },
+        {
+        title: 'honey ginger lemon',
+        subtitle: '6% ABV',
+        name: 'honey ginger lemon <br /> - 6% ABV',
+        description: 'GINGER, LEMON, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
+        images: HoneyGingerImg,
+        url: '/byob#honeygingerlemon'
+        },
+    ]
 
     useEffect(() => {
         
@@ -85,7 +175,7 @@ const Index = () => {
               <div sx={{mt: '70px'}}>
                   
                   <QuizHeader />
-                  <GeneralQuiz />
+                  <QuizComponent items={items} data={Data} answers={JsonResults} />
 
                   <div sx={{backgroundColor: '#fceee4'}}>
                       <Container sx={{py: 6}}>

@@ -9,7 +9,6 @@ import GetName from './GetName';
 import GetEmail from './GetEmail';
 import quizContext from '../../context/QuizContext/quizContext';
 import ResultComponent from "./ResultComponent"
-import Data from './Data.js';
 import IntroSlide from './IntroSlide';
 import styled from 'styled-components';
 import EmailKlaviyo from './EmailKlaviyo';
@@ -38,7 +37,8 @@ const ContainerPersonalized  = styled(Container)`
     }
 `;
 
-const QuizComponent = () => {
+const QuizComponent = ({items, data, answers}) => {
+
     const QuizContext = useContext(quizContext);
     const { step, hide } = QuizContext;
 
@@ -70,20 +70,20 @@ const QuizComponent = () => {
 
                             (step === -1) ? <EmailKlaviyo /> : (
 
-                                (step >= Data.length) ? (
+                                (step >= data.length) ? (
 
-                                    // (step === Data.length) ? // ! Delete this line to take out the email from the end
+                                    // (step === data.length) ? // ! Delete this line to take out the email from the end
                                     // <GetEmail />             // ! Delete this line to take out the email from the end
                                     // :                        // ! Delete this line to take out the email from the end
-                                    <ResultComponent />
+                                    <ResultComponent items={items} answers={answers} />
 
                                 ) : (
 
                                     <div id="quizSection" key={step}>
-                                        <Question lineOne={Data[step].Question.LineOne} lineTwo={Data[step].Question.LineTwo} />
+                                        <Question lineOne={data[step].Question.LineOne} lineTwo={data[step].Question.LineTwo} />
                                         <Flex sx={{width: '100%', justifyContent: 'center',  flexWrap: 'wrap', textAlign: 'center', margin: '0 auto 50px auto'}}>
                                         {
-                                            Data[step].Answers.map( one => {
+                                            data[step].Answers.map( one => {
                                                 if(one.Type === 'text') {
                                                     return (
                                                         <FlexOption key={one.Value}>
