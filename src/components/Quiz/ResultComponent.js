@@ -6,18 +6,67 @@ import IndividualResult from './IndividualResult';
 import quizContext from '../../context/QuizContext/quizContext';
 import JsonResults from './Answers.json';
 import '../../styles/spinner.css';
+import {useStaticQuery, graphql} from 'gatsby'
 
-import MidnightPainkiller from '../../images/Bundle/Midnight Painkiller.png'
-import BloodOrangeMint from '../../images/Bundle/Blood Orange Mint.png'
-import AcaiBerry from '../../images/Bundle/Acai Berry.png'
-import HopicalCitrus from '../../images/Bundle/Hopical Citrus.png'
-import HoneyGingerLemon from '../../images/Bundle/Honey Ginger Lemon.png'
+// import MidnightPainkiller from '../../images/Bundle/Midnight Painkiller.png'
+// import BloodOrangeMint from '../../images/Bundle/Blood Orange Mint.png'
+// import AcaiBerry from '../../images/Bundle/Acai Berry.png'
+// import HopicalCitrus from '../../images/Bundle/Hopical Citrus.png'
+// import HoneyGingerLemon from '../../images/Bundle/Honey Ginger Lemon.png'
 
 // 1 MIDNIGHT PAINKILLER
 // 2 BLOOD ORANGE MINT
 // 3 ACAI BERRY
 // 4 hopical citrus
 // 5 honey ginger lemon
+
+
+const ResultComponent = () => {
+  
+const { AcaiImg, BloodOrangeMintImg, HoneyGingerImg, HopicalCitrusImg, MidnightImg } = useStaticQuery(graphql`
+query {
+    AcaiImg: file(relativePath: { eq: "Quiz/Acai.png" }) {
+        childImageSharp {
+        fluid(quality: 100, maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+        }
+        }
+      }
+
+      BloodOrangeMintImg: file(relativePath: { eq: "Quiz/Blood.png" }) {
+        childImageSharp {
+        fluid(quality: 100, maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+        }
+        }
+      }
+
+      HoneyGingerImg: file(relativePath: { eq: "Quiz/Honey.png" }) {
+        childImageSharp {
+        fluid(quality: 100, maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+        }
+        }
+      }
+
+      HopicalCitrusImg: file(relativePath: { eq: "Quiz/Hopical.png" }) {
+        childImageSharp {
+        fluid(quality: 100, maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+        }
+        }
+      }
+
+      MidnightImg: file(relativePath: { eq: "Quiz/Midnight.png" }) {
+        childImageSharp {
+        fluid(quality: 100, maxWidth: 500) {
+            ...GatsbyImageSharpFluid
+        }
+        }
+      }
+
+}
+`);
 
 const items = [
     {},
@@ -26,7 +75,7 @@ const items = [
       subtitle: '6% ABV',
       name: 'JuneShine Midnight Painkiller - 6% ABV - BYOB',
       description: 'orange, pineapple, coconut, nutmeg, activated charcoal, green tea, honey, cane sugar, jun kombucha',
-      images: MidnightPainkiller,
+      images: MidnightImg,
       url: '/byob#midnight'
     },
     {
@@ -34,7 +83,7 @@ const items = [
       subtitle: '6% ABV',
       name: 'JuneShine Blood Orange Mint - 6% ABV - BYOB',
       description: 'Blood orange, mint, green tea, honey, cane sugar, jun kombucha',
-      images: BloodOrangeMint,
+      images: BloodOrangeMintImg,
       url: '/byob#bloodOrang'
     },
     {
@@ -42,7 +91,7 @@ const items = [
       subtitle: '6% ABV',
       name: 'JuneShine Acai Berry - 6% ABV - BYOB',
       description: 'ACAI, BLUEBERRY, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
-      images: AcaiBerry,
+      images: AcaiImg,
       url: '/byob#acaiberry'
     },
     {
@@ -50,7 +99,7 @@ const items = [
       subtitle: '6% ABV',
       name: 'JuneShine Hopical Citrus - 6% ABV - BYOB',
       description: 'GRAPEFRUIT, ORGANIC HOPS, CITRUS ZEST, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
-      images: HopicalCitrus,
+      images: HopicalCitrusImg,
       url: '/byob#hopical'
     },
     {
@@ -58,12 +107,11 @@ const items = [
       subtitle: '6% ABV',
       name: 'honey ginger lemon <br /> - 6% ABV',
       description: 'GINGER, LEMON, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
-      images: HoneyGingerLemon,
+      images: HoneyGingerImg,
       url: '/byob#honeygingerlemon'
     },
 ]
 
-const ResultComponent = () => {
   const QuizContext = useContext(quizContext);
   const { name, points } = QuizContext;
   const [ loading, setLoading ] = useState(true);

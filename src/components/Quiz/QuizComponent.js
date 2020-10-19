@@ -12,6 +12,7 @@ import ResultComponent from "./ResultComponent"
 import Data from './Data.js';
 import IntroSlide from './IntroSlide';
 import styled from 'styled-components';
+import EmailKlaviyo from './EmailKlaviyo';
 
 const FlexOption = styled(Flex)`
     margin-left: auto!important;
@@ -62,13 +63,22 @@ const QuizComponent = () => {
 
                 {
                     (step === -3) ? <IntroSlide /> : (
+                        
                         (step === -2) ? (
                             <GetName />
                         ) : (
-                            (step === -1) ? <GetEmail /> : (
+
+                            (step === -1) ? <EmailKlaviyo /> : (
+
                                 (step >= Data.length) ? (
-                                    (step === Data.length) ? <GetEmail /> : <ResultComponent />
+
+                                    // (step === Data.length) ? // ! Delete this line to take out the email from the end
+                                    // <GetEmail />             // ! Delete this line to take out the email from the end
+                                    // :                        // ! Delete this line to take out the email from the end
+                                    <ResultComponent />
+
                                 ) : (
+
                                     <div id="quizSection" key={step}>
                                         <Question lineOne={Data[step].Question.LineOne} lineTwo={Data[step].Question.LineTwo} />
                                         <Flex sx={{width: '100%', justifyContent: 'center',  flexWrap: 'wrap', textAlign: 'center', margin: '0 auto 50px auto'}}>
@@ -76,7 +86,7 @@ const QuizComponent = () => {
                                             Data[step].Answers.map( one => {
                                                 if(one.Type === 'text') {
                                                     return (
-                                                        <FlexOption>
+                                                        <FlexOption key={one.Value}>
                                                             <TextAnswer text={one.Text} value={one.Value} icon={one.Icon} />
                                                         </FlexOption>
                                                     )
@@ -84,7 +94,7 @@ const QuizComponent = () => {
                                                 
                                                 if(one.Type === 'darkimg' || one.Type === 'lightimg') {
                                                     return (
-                                                        <FlexOption>
+                                                        <FlexOption key={one.Value}>
                                                             <ImgAnswer img={one.Picture} mode={one.Type} text={one.Text} value={one.Value} />
                                                         </FlexOption>
                                                     )

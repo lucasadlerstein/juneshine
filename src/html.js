@@ -11,6 +11,9 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        
+        <script type="text/javascript" async src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Yim9z5"></script>
+
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>

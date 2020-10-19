@@ -5,24 +5,24 @@ import React, {useEffect} from 'react'
 import {useStaticQuery, graphql} from 'gatsby'
 import Img from 'gatsby-image'
 
-import SEO from '../components/seo'
-import Layout from '../components/bundleLayout'
-import { BundleHeader, Footer } from '../components/Navigation'
-import { LogoBar } from '../components/Sections'
+import SEO from '../../components/seo'
+import Layout from '../../components/bundleLayout'
+import { BundleHeader, Footer } from '../../components/Navigation'
+import { LogoBar } from '../../components/Sections'
 
-import forbes from '../images/logos/forbes-white.png'
-import nbc from '../images/logos/nbc-white.png'
-import popsugar from '../images/logos/popsugar-white.png'
-import coolHunting from '../images/logos/cool hunting-white.png'
-import today from '../images/logos/today-white.png'
+import forbes from '../../images/logos/forbes-white.png'
+import nbc from '../../images/logos/nbc-white.png'
+import popsugar from '../../images/logos/popsugar-white.png'
+import coolHunting from '../../images/logos/cool hunting-white.png'
+import today from '../../images/logos/today-white.png'
 
 // Quiz Components
-import QuizHeader from '../components/Quiz/QuizHeader';
-import QuizState from '../context/QuizContext/quizState';
-import GeneralQuiz from "../components/Quiz/GeneralQuiz"
-import { redirectPerRegion } from '../helpers/getLocation';
+import QuizHeader from '../../components/Quiz/QuizHeader';
+import QuizState from '../../context/QuizContext/quizState';
+import GeneralQuiz from '../../components/Quiz/GeneralQuiz';
+import { redirectPerRegion } from '../../helpers/getLocation';
 
-const Quiz = () => {
+const Index = () => {
     const { drink1, drink2, drink3, drink4, drink5 } = useStaticQuery(graphql`
         query {
             drink1: file(relativePath: { eq: "Bundle/Acai Berry.png" }) {
@@ -71,7 +71,9 @@ const Quiz = () => {
     const regionsArray = ['CA', 'NY'];
 
     useEffect(() => {
+        
         redirectPerRegion(regionsArray, 'https://google.com');
+
         // eslint-disable-next-line
     }, []);
 
@@ -118,4 +120,4 @@ const Quiz = () => {
     
 }
 
-export default Quiz
+export default Index

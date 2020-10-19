@@ -5,7 +5,7 @@ import Question from './Question';
 import styled from 'styled-components';
 import quizContext from '../../context/QuizContext/quizContext';
 import RightArrowIcon from '../../images/Quiz/send-arrow.png';
-
+import {subscribe} from "klaviyo-subscribe"
 
 const TextInput = styled.input`
     background-color: transparent;
@@ -50,18 +50,18 @@ const GetEmail = () => {
 
     const [emailTyped, setEmailTyped] = useState('');
 
+    const listId = "Y96CSh";
+
     const sendForm = e => {
         e.preventDefault();
         if( emailTyped === '' ) {
-            // alert('Email is required');
-
-            // ! DELETE THIS
-            answerCompleted(0);
+            alert('Email is required');
         } else {
             // Save to KLAVIYO
-
-            // MOVE STEP FORWARD
-            answerCompleted(0);
+            subscribe(listId, emailTyped).then(response => {             
+                // MOVE STEP FORWARD
+                answerCompleted(0);
+            });
         }
     }
 
@@ -79,7 +79,6 @@ const GetEmail = () => {
                     <ButtonSend type="submit">
                         <img src={RightArrowIcon} alt="Save Email"/>
                     </ButtonSend>
-                    {/* <div class="klaviyo-form-R7dRqY"></div> */}
                 </Container>
             </form>
         </>

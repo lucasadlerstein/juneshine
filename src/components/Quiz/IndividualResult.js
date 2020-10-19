@@ -2,6 +2,7 @@
 import { jsx, Container, Grid, Box, Styled, Flex, Link, Button } from "theme-ui"
 import React from 'react';
 import styled from 'styled-components';
+import Img from 'gatsby-image'
 
 const ProductResult = styled(Grid)`
     border: 2px solid black;
@@ -73,7 +74,8 @@ const IndividualResult = ({product, marginBottom}) => {
     return (
         <ProductResult columns={[1,2]} gap={[0,3]} style={{marginBottom: marginBottom}}>
             <Flex sx={{justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'column'}}>
-                <ProductImage src={product.images} alt={product.name} />
+                {/* <ProductImage src={product.images} alt={product.name} /> */}
+                <Img fluid={product.images.childImageSharp.fluid} sx={{width: '80%!important'}} />
             </Flex>
             <Flex sx={{justifyContent: 'flex-start', alignItems: 'left', flexDirection: 'column'}}>
                 <Information>
