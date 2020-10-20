@@ -51,7 +51,7 @@ const GetName = () => {
     const sendForm = e => {
         e.preventDefault();
         if( nameTyped === '' ) {
-            alert('Name is required');
+            saveName('');
         } else {
             saveName(nameTyped);
         }

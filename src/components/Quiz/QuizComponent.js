@@ -66,6 +66,8 @@ const QuizComponent = ({items, data, answers, numberOfSteps}) => {
             <ContainerPersonalized>
                 { (step === totalSteps) ? null : <StepIndicator /> }
 
+                {/* HERE STARTS EACH STEP */}
+
                 {
                     (step === -3) ? <IntroSlide /> : (
                         
@@ -77,13 +79,12 @@ const QuizComponent = ({items, data, answers, numberOfSteps}) => {
 
                                 (step >= data.length) ? (
 
-                                    // (step === data.length) ? // ! Delete this line to take out the email from the end
-                                    // <GetEmail />             // ! Delete this line to take out the email from the end
-                                    // :                        // ! Delete this line to take out the email from the end
+                                    // (step === data.length) ? // ! This line is the email at the end
+                                    // <EmailKlaviyo />         // ! This line is the email at the end
+                                    // :                        // ! This line is the email at the end
                                     <ResultComponent items={items} answers={answers} />
 
                                 ) : (
-
                                     <div id="quizSection" key={step}>
                                         <Question lineOne={data[step].Question.LineOne} lineTwo={data[step].Question.LineTwo} />
                                         <Flex sx={{width: '100%', justifyContent: 'center',  flexWrap: 'wrap', textAlign: 'center', margin: '0 auto 50px auto'}}>
@@ -111,9 +112,10 @@ const QuizComponent = ({items, data, answers, numberOfSteps}) => {
                                 )
                             )
                         )
-                    )
-                    
+                    )   
                 }
+                {/* END OF STEPS */}
+
             </ContainerPersonalized>
         </div>
     );

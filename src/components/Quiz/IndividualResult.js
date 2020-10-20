@@ -74,7 +74,6 @@ const IndividualResult = ({product, marginBottom}) => {
     return (
         <ProductResult columns={[1,2]} gap={[0,3]} style={{marginBottom: marginBottom}}>
             <Flex sx={{justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'column'}}>
-                {/* <ProductImage src={product.images} alt={product.name} /> */}
                 <Img fluid={product.images.childImageSharp.fluid} sx={{width: '80%!important'}} />
             </Flex>
             <Flex sx={{justifyContent: 'flex-start', alignItems: 'left', flexDirection: 'column'}}>

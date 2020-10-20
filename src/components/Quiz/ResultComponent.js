@@ -33,7 +33,10 @@ const ResultComponent = ({items, answers}) => {
       {
         (loading === true) ? (
           <div style={{textAlign: 'center'}}>
-            <ResultTitle text={`Be patient ${name}, your JuneShine is brewing...`} />
+            {
+              (name !== '') ? <ResultTitle text={`Be patient ${name}, your JuneShine is brewing...`} /> : <ResultTitle text={`Be patient, your JuneShine is brewing...`} />
+            }
+            
             <div className="spinner">
               <div className="bounce1"></div>
               <div className="bounce2"></div>
@@ -43,7 +46,11 @@ const ResultComponent = ({items, answers}) => {
         ) : (
           <div sx={{backgroundColor: '#f7f7f7'}}>
               <Container sx={{ textAlign: 'center'}}>
-                  <ResultTitle text={`${name}, for sure you will love our`} />
+                  
+                  {
+                    (name !== '') ? <ResultTitle text={`${name}, for sure you will love our`} /> : <ResultTitle text={`For sure you will love our`} />
+                  }
+
                   <IndividualResult product={items[answers[points-1].Main]} />
                   <ResultTitle text={'Or this...'} />
                   {

@@ -114,7 +114,7 @@ const Index = () => {
         }
     `);
 
-    const regionsArray = ['CA', 'NY'];
+    const regionsArray = ['California', 'New York', 'CA', 'NY'];
 
     const items = [
         {},
