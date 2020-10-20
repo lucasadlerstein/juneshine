@@ -1,8 +1,15 @@
 /** @jsx jsx */
-import { NAME_COMPLETED, ANSWER_DONE, HIDE_STEP } from '../../types/index';
+import { NAME_COMPLETED, ANSWER_DONE, HIDE_STEP, NUMBER_STEPS } from '../../types/index';
 
 const Reducer = (state, action) => {
     switch(action.type) {
+
+        case NUMBER_STEPS:
+            return {
+                ...state,
+                step: state.step - action.payload,
+                totalSteps: state.totalSteps - action.payload
+            }
 
         case HIDE_STEP:
             return {

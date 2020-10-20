@@ -1,15 +1,16 @@
 import React, { useReducer } from 'react';
 import quizContext from './quizContext';
 import quizReducer from './quizReducer';
-import { NAME_COMPLETED, ANSWER_DONE, HIDE_STEP } from '../../types/index';
+import { NAME_COMPLETED, ANSWER_DONE, HIDE_STEP, NUMBER_STEPS } from '../../types/index';
 
 const QuizState = ({children}) => {
     const stateInicial = {
         name: '',
-        step: -3,
+        step: 0,
         points: 0,
         done: false,
-        hide: false
+        hide: false,
+        totalSteps: 0
     }
 
     const [ state, dispatch ] = useReducer(quizReducer, stateInicial);
@@ -36,6 +37,13 @@ const QuizState = ({children}) => {
         }, 50);
     }
 
+    const setNumberOfSteps = numSteps => {
+        dispatch({
+            type: NUMBER_STEPS,
+            payload: numSteps
+        })
+    }
+
     return (
         <quizContext.Provider
             value={{
@@ -44,8 +52,10 @@ const QuizState = ({children}) => {
                 points: state.points,
                 done: state.done,
                 hide: state.hide,
+                totalSteps: state.totalSteps,
                 saveName,
-                answerCompleted
+                answerCompleted,
+                setNumberOfSteps
             }}
         >
             {children}

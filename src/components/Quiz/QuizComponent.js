@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Grid, Box, Styled, Flex } from "theme-ui"
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import StepIndicator from "./StepIndicator";
 import Question from "./Question";
 import TextAnswer from "./TextAnswer";
@@ -37,12 +37,18 @@ const ContainerPersonalized  = styled(Container)`
     }
 `;
 
-const QuizComponent = ({items, data, answers}) => {
+const QuizComponent = ({items, data, answers, numberOfSteps}) => {
 
     const QuizContext = useContext(quizContext);
-    const { step, hide } = QuizContext;
+    const { step, hide, setNumberOfSteps, totalSteps } = QuizContext;
+    
+    const [changedSteps, setChangedSteps] = useState(false);
 
     useEffect(() => {
+        if(changedSteps === false) {
+            setNumberOfSteps(numberOfSteps);
+            setChangedSteps(true);
+        }
         const quizSection = document.querySelector('#quizSection'); 
         if(quizSection) {
             quizSection.style.transition = 'all .3s ease';
@@ -58,8 +64,7 @@ const QuizComponent = ({items, data, answers}) => {
     return (
         <div sx={{backgroundColor: '#f7f7f7'}}>
             <ContainerPersonalized>
-
-                { (step === -3) ? null : <StepIndicator /> }
+                { (step === totalSteps) ? null : <StepIndicator /> }
 
                 {
                     (step === -3) ? <IntroSlide /> : (

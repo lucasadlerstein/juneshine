@@ -161,9 +161,7 @@ const Index = () => {
     ]
 
     useEffect(() => {
-        
         redirectPerRegion(regionsArray, 'https://google.com');
-
         // eslint-disable-next-line
     }, []);
 
@@ -175,7 +173,10 @@ const Index = () => {
               <div sx={{mt: '70px'}}>
                   
                   <QuizHeader />
-                  <QuizComponent items={items} data={Data} answers={JsonResults} />
+                  <QuizComponent items={items} data={Data} answers={JsonResults} numberOfSteps={3} />
+                    {/*     Number of steps BEFORE first question.
+                            3 because "FIRST SLIDER" / "NAME" / "EMAIL". */}
+
 
                   <div sx={{backgroundColor: '#fceee4'}}>
                       <Container sx={{py: 6}}>

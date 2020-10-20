@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import quizContext from '../../context/QuizContext/quizContext';
 import RightArrowIcon from '../../images/Quiz/send-arrow.png';
 import {subscribe} from "klaviyo-subscribe"
+import '../../styles/spinner.css';
 
 const TextInput = styled.input`
     background-color: transparent;
@@ -49,17 +50,18 @@ const GetEmail = () => {
     const { answerCompleted } = QuizContext;
 
     const [emailTyped, setEmailTyped] = useState('');
-
-    const listId = "Y96CSh";
+    const [loading, setLoading] = useState(false);
 
     const sendForm = e => {
         e.preventDefault();
         if( emailTyped === '' ) {
             alert('Email is required');
         } else {
-            // Save to KLAVIYO
-            subscribe(listId, emailTyped).then(response => {             
-                // MOVE STEP FORWARD
+            setLoading(true);
+            // KLAVIYO
+            subscribe("Y96CSh", emailTyped).then(response => {     
+                console.log(response);
+                // MOVE STEP FORWARD WITH 0 POINTS
                 answerCompleted(0);
             });
         }
@@ -73,14 +75,25 @@ const GetEmail = () => {
     return (
         <>
             <Question lineOne="Sign up for emails and get 10% off your next order," lineTwo="plus all the deets on new releases, offers and more." />
-            <form onSubmit={sendForm}>
-                <Container sx={{textAlign: 'center'}}>
-                    <TextInput type="email" placeholder="My email is..." name="emailTyped" onChange={handleChange} />
-                    <ButtonSend type="submit">
-                        <img src={RightArrowIcon} alt="Save Email"/>
-                    </ButtonSend>
-                </Container>
-            </form>
+            {
+                (loading === false) ? (
+                    <form onSubmit={sendForm}>
+                        <Container sx={{textAlign: 'center'}}>
+                            <TextInput type="email" placeholder="My email is..." name="emailTyped" onChange={handleChange} />
+                            <ButtonSend type="submit">
+                                <img src={RightArrowIcon} alt="Save Email"/>
+                            </ButtonSend>
+                        </Container>
+                    </form>
+                ) : (
+                    <div className="spinner">
+                        <div className="bounce1"></div>
+                        <div className="bounce2"></div>
+                        <div className="bounce3"></div>
+                    </div>
+                )
+            }
+            
         </>
     );
 }
