@@ -29,15 +29,6 @@ const FlexOption = styled(Flex)`
     }
 `;
 
-const ContainerPersonalized  = styled(Container)`
-    padding-top: 40px;
-    padding-bottom: 40px;
-    @media (min-width: 540px){
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-`;
-
 const QuizComponent = ({items, data, answers, numberOfSteps}) => {
 
     const QuizContext = useContext(quizContext);
@@ -68,7 +59,10 @@ const QuizComponent = ({items, data, answers, numberOfSteps}) => {
 
     return (
         <div sx={{backgroundColor: '#f7f7f7'}}>
-            <ContainerPersonalized>
+            <Container sx={{
+                paddingTop: '40px',
+                paddingBottom: '40px'
+            }}>
                 { (step === totalSteps) ? null : <StepIndicator /> }
 
                 {/* HERE STARTS EACH STEP */}
@@ -127,8 +121,7 @@ const QuizComponent = ({items, data, answers, numberOfSteps}) => {
                     )
                 }
                 {/* END OF STEPS */}
-
-            </ContainerPersonalized>
+                </Container>
         </div>
     );
 }

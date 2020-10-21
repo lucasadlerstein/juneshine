@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container } from "theme-ui"
-import React, {useContext, useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useContext, useState} from 'react';
 import Question from './Question';
 import styled from 'styled-components';
 import quizContext from '../../context/QuizContext/quizContext';
@@ -53,48 +52,32 @@ const GetEmail = () => {
     const [emailTyped, setEmailTyped] = useState('');
     const [loading, setLoading] = useState(false);
 
+    const listId = "Y96CSh";
+
     const sendForm = async e => {
         e.preventDefault();
         if( emailTyped === '' ) {
             alert('Email is required');
         } else {
             setLoading(true);
-            // KLAVIYO
-            subscribe("Y96CSh", emailTyped).then(response => {     
-                // MOVE STEP FORWARD WITH 0 POINTS
-                answerCompleted(0);
-            });
 
-            // With API
-
-            // const bodyAPI = {
-            //     "api_key": "pk_2738c02fc007d58b6979632f58bc3e9ab1",
-            //     "profiles": [
-            //         {
-            //             "email": emailTyped
-            //         }
-            //     ]
-            // }
-
-            // const url = 'https://a.klaviyo.com/api/v2/list/Y96CSh/subscribe';
-            // const responseKlaviyo = await axios.post(url, bodyAPI)
-            //     .then(resp => {
-            //         console.log(resp);
-            //         answerCompleted(0);
-            //     })
-            //     .catch(error => {
-            //         console.log(error);
-            //         answerCompleted(0);  
-            //     })
-
-            //     console.log(responseKlaviyo);
+            // // KLAVIYO
+            subscribe(listId, emailTyped)
+                .then(response => {     
+                    console.log(response);
+                    // MOVE STEP FORWARD WITH 0 POINTS
+                    answerCompleted(0);
+                })
+                .catch(error => {
+                    console.log(error);
+                    answerCompleted(0);
+                })
         }
     }
 
     const handleChange = e => {
         setEmailTyped(e.target.value)
     }
-
 
     return (
         <>
