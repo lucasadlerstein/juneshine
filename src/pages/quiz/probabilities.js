@@ -19,7 +19,7 @@ import today from '../../images/logos/today-white.png'
 // Quiz Components
 import QuizHeader from '../../components/Quiz/QuizHeader';
 import QuizState from '../../context/QuizContext/quizState';
-import QuizComponent from '../../components/Quiz/QuizComponent';
+import QuizComponentProbabilities from '../../components/Quiz/QuizComponentProbabilities';
 import { redirectPerRegion } from '../../helpers/getLocation';
 
 // DATA FOR QUIZ
@@ -29,7 +29,7 @@ import Data from '../../components/Quiz/Data_Probabilities.js';
 
 const Index = () => {
 
-    const { drink1, drink2, drink3, drink4, drink5, AcaiImg, BloodOrangeMintImg, HoneyGingerImg, HopicalCitrusImg, MidnightImg } = useStaticQuery(graphql`
+    const { drink1, drink2, drink3, drink4, drink5, AcaiImg, BloodOrangeMintImg, HoneyGingerImg, HopicalCitrusImg, MidnightImg, SamplerPackImg } = useStaticQuery(graphql`
         query {
             drink1: file(relativePath: { eq: "Bundle/Acai Berry.png" }) {
                 childImageSharp {
@@ -109,6 +109,14 @@ const Index = () => {
                 }
                 }
               }
+
+              SamplerPackImg: file(relativePath: { eq: "Quiz/SamplerPack.png" }) {
+                childImageSharp {
+                fluid(quality: 100, maxWidth: 500) {
+                    ...GatsbyImageSharpFluid
+                }
+                }
+              }
         
         
         }
@@ -135,7 +143,7 @@ const Index = () => {
         url: '/byob#bloodOrang'
         },
         {
-        title: 'honey ginger lemon',
+        title: 'HONEY GINGER LEMON',
         subtitle: '6% ABV',
         name: 'honey ginger lemon <br /> - 6% ABV',
         description: 'GINGER, LEMON, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
@@ -143,7 +151,7 @@ const Index = () => {
         url: '/byob#honeygingerlemon'
         },
         {
-        title: 'hopical citrus',
+        title: 'HOPICAL CITRUS',
         subtitle: '6% ABV',
         name: 'JuneShine Hopical Citrus - 6% ABV - BYOB',
         description: 'GRAPEFRUIT, ORGANIC HOPS, CITRUS ZEST, GREEN TEA, HONEY, CANE SUGAR, JUN KOMBUCHA',
@@ -156,6 +164,14 @@ const Index = () => {
         name: 'JuneShine Midnight Painkiller - 6% ABV - BYOB',
         description: 'orange, pineapple, coconut, nutmeg, activated charcoal, green tea, honey, cane sugar, jun kombucha',
         images: MidnightImg,
+        url: '/byob#midnight'
+        },
+        {
+        title: 'SAMPLER PACK',
+        subtitle: '6% ABV',
+        name: 'JunShine Sampler Pack - 6% ABV - BYOB',
+        description: 'Midnight Painkiller, Hipical Citrus, Acai Berry, Honey Ginger Lemon and Blood Orange Mint',
+        images: SamplerPackImg,
         url: '/byob#midnight'
         }
     ]
@@ -174,7 +190,7 @@ const Index = () => {
                   
                   <QuizHeader />
 
-                  <QuizComponent items={items} data={Data} answers={JsonResults} numberOfSteps={3} />
+                  <QuizComponentProbabilities items={items} data={Data} answers={JsonResults} numberOfSteps={3} />
 
                   <div sx={{backgroundColor: '#fceee4'}}>
                       <Container sx={{py: 6}}>

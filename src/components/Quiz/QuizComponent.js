@@ -83,10 +83,7 @@ const QuizComponent = ({items, data, answers, numberOfSteps}) => {
                                 (step === -1) ? <EmailKlaviyo /> : (
     
                                     (step >= data.length) ? (
-    
-                                        // (step === data.length) ? // ! This line is the email at the end
-                                        // <EmailKlaviyo />         // ! This line is the email at the end
-                                        // :                        // ! This line is the email at the end
+
                                         <ResultComponent items={items} answers={answers} />
     
                                     ) : (
