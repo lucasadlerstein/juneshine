@@ -27,6 +27,8 @@ const ResultComponent = ({items, answers}) => {
     }, 2100);
     // eslint-disable-next-line
   }, []);
+
+  console.log(points);
   
   return (
     <>
